@@ -27,6 +27,9 @@ namespace Exe3_Farhan_Taufiqul_Ihsan_087
             string name;
             Console.Write("\nEnter the roll number of the student: ");
             rollNo = Convert.ToInt32(Console.ReadLine());
+            Console.Write("\nEnter the name of the student: ");
+            name = Console.ReadLine();
+
         }
         public bool Search(int rollNo, ref Node previous, ref Node current)/*Searches for the specified node*/
         {
