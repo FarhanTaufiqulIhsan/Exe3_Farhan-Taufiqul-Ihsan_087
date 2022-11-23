@@ -12,6 +12,7 @@ namespace Exe3_Farhan_Taufiqul_Ihsan_087
         public int rollNumber;
         public string name;
         public Node next;
+        public Node prev;
     }
     class CircularList
     {
@@ -32,7 +33,47 @@ namespace Exe3_Farhan_Taufiqul_Ihsan_087
             Node newnode = new Node();
             newnode.rollNumber = rollNo;
             newnode.name = name;
-            
+            /*Checks if the list is  empty*/
+            if (LAST == null || rollNo <= LAST.rollNumber)
+            {
+                if ((LAST != null) && (rollNo == LAST.rollNumber))
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed");
+                    return;
+                }
+                newnode.next = LAST;
+                if (LAST != null)
+                    LAST.prev = newnode;
+                newnode.prev = null;
+                LAST = newnode;
+                return;
+            }
+            Node previous, current;
+            for (current = previous = LAST; current != null &&
+                rollNo >= current.rollNumber; previous = current, current =
+                current.next)
+            {
+                if (rollNo == current.rollNumber)
+                {
+                    Console.WriteLine("\nDuplicate roll numbers not allowed");
+                    return;
+                }
+            }
+            /*On the execution of the above for loop, prev and 
+             * current will point to those nodes
+             between which the new node is to be inserted*/
+            newnode.next = current;
+            newnode.prev = previous;
+
+            /*If the node is tobe inserted at the end of the list.*/
+            if (current == null)
+            {
+                newnode.next = null;
+                previous.next = newnode;
+                return;
+            }
+            current.prev = newnode;
+            previous.next = newnode;
         }
         public bool Search(int rollNo, ref Node previous, ref Node current)/*Searches for the specified node*/
         {
