@@ -20,6 +20,14 @@ namespace Exe3_Farhan_Taufiqul_Ihsan_087
         {
             LAST = null;
         }
+
+        public void addNode()/*Adds a new node*/
+        {
+            int rollNo;
+            string name;
+            Console.Write("\nEnter the roll number of the student: ");
+            rollNo = Convert.ToInt32(Console.ReadLine());
+        }
         public bool Search(int rollNo, ref Node previous, ref Node current)/*Searches for the specified node*/
         {
             for (previous = current = LAST.next; current != LAST; previous = current, current = current.next)
