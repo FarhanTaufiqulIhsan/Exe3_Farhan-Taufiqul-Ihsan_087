@@ -13,8 +13,13 @@ namespace Exe3_Farhan_Taufiqul_Ihsan_087
         public string name;
         public Node next;
     }
-    internal class Program
+    class CircularList
     {
+        Node LAST;
+        public CircularList()
+        {
+            LAST = null;
+        }
         static void Main(string[] args)
         {
         }
