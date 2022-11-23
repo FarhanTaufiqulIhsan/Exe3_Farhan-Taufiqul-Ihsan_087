@@ -163,7 +163,67 @@ namespace Exe3_Farhan_Taufiqul_Ihsan_087
                     char ch = Convert.ToChar(Console.ReadLine());
                     switch (ch)
                     {
-
+                        case '1':
+                            {
+                                obj.addNode();
+                            }
+                            break;
+                        case '2':
+                            {
+                                if (obj.listEmpty())
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;
+                                }
+                                Console.Write("\nEnter the roll number of the student"
+                                    + " whose record is to be deleted: ");
+                                int rollNo = Convert.ToInt32(Console.ReadLine());
+                                Console.WriteLine();
+                                if (obj.delNode(rollNo) == false)
+                                    Console.WriteLine("Reord not found");
+                                else
+                                    Console.WriteLine("Record with roll number"
+                                        + rollNo + " deleted \n");
+                            }
+                            break ;
+                        case '3':
+                            {
+                                obj.traverse();
+                            }
+                            break;
+                        case '4':
+                            {
+                                if (obj.listEmpty() == true)
+                                {
+                                    Console.WriteLine("\nList is empty");
+                                    break;
+                                }
+                                Node prev, curr;
+                                prev = curr = null;
+                                Console.Write("\nEnter the roll number of the student whose record is to be searched: ");
+                                int num = Convert.ToInt32(Console.ReadLine());
+                                if (obj.Search(num, ref prev, ref curr) == false)
+                                    Console.WriteLine("\nRecord not found");
+                                else
+                                {
+                                    Console.WriteLine("\nRecord found");
+                                    Console.WriteLine("\nRoll Number: " + curr.rollNumber);
+                                    Console.WriteLine("\nName: " + curr.name);
+                                }
+                            }
+                            break;
+                        case '5':
+                            {
+                                obj.firstNode();
+                            }
+                            break;
+                        case '6':
+                            return;
+                        default:
+                            {
+                                Console.WriteLine("Invalid option");
+                                break ;
+                            }
                     }
                 }
                 catch (Exception e)
