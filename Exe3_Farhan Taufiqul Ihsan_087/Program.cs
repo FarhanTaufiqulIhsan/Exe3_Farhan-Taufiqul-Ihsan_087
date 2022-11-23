@@ -32,6 +32,13 @@ namespace Exe3_Farhan_Taufiqul_Ihsan_087
             else
                 return (false);/*return false if the node is not found*/
         }
+        public bool listEmpty()
+        {
+            if (LAST == null)
+                return true ;
+            else
+                return false ;
+        }
         static void Main(string[] args)
         {
         }
